@@ -91,13 +91,16 @@ public class ValidationItemControllerV2 {
 
         //검증 로직
         if (!StringUtils.hasText(item.getItemName())) {
-            bindingResult.addError(new FieldError("item", "itemName", item.getItemName(), false, null, null, "상품 이름은 필수 입니다."));
+            bindingResult.addError(new FieldError("item", "itemName", item.getItemName(),
+                    false, null, null, "상품 이름은 필수 입니다."));
         }
         if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000) {
-            bindingResult.addError(new FieldError("item", "price", item.getPrice(), false, null, null, "가격은 1,000 ~ 1,000,000 까지 허용합니다."));
+            bindingResult.addError(new FieldError("item", "price", item.getPrice(),
+                    false, null, null, "가격은 1,000 ~ 1,000,000 까지 허용합니다."));
         }
         if (item.getQuantity() == null || item.getQuantity() >= 9999) {
-            bindingResult.addError(new FieldError("item", "quantity", item.getQuantity(), false, null ,null, "수량은 최대 9,999 까지 허용합니다."));
+            bindingResult.addError(new FieldError("item", "quantity", item.getQuantity(),
+                    false, null ,null, "수량은 최대 9,999 까지 허용합니다."));
         }
 
         //특정 필드가 아닌 복합 룰 검증

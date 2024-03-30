@@ -47,7 +47,7 @@ public class ValidationItemControllerV3 {
 //    @PostMapping("/add")
     public String addItem(@Validated @ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
-        //특정 필드가 아닌 복합 룰 검증
+        //특정 필드가 아닌 전체 예외
         if (item.getPrice() != null && item.getQuantity() != null) {
             int resultPrice = item.getPrice() * item.getQuantity();
             if (resultPrice < 10000) {
